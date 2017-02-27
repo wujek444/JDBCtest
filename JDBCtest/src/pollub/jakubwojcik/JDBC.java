@@ -1,32 +1,12 @@
 package pollub.jakubwojcik;
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
 
 public class JDBC {
 
-	static String daneZBazy;
-	static void wyswietlDaneZBazy(ResultSet rs){
-		
-        try{
-        ResultSetMetaData rsmd = rs.getMetaData();
-        int resultSetColumnCount = rsmd.getColumnCount();
-        for(int i=1; i<=resultSetColumnCount; i++){
-        	 System.out.println(rs.getString(i) + " "); //drukuj kolumnę
-        }
-        	
-//        daneZBazy = rs.getString(1); //pobierz 1. kolumnę z wiersza
-//        System.out.println("\n" + daneZBazy + " "); //drukuj kolumnę
-//        daneZBazy = rs.getString(2);//pobierz 2. kolumnę z wiersza
-//        System.out.println(daneZBazy + " ");//drukuj kolumnę
-//        daneZBazy = rs.getString(3);//pobierz 3. kolumnę z wiersza
-//        System.out.println(daneZBazy);//drukuj kolumnę
-        }catch(SQLException e) {
-                //e.printStackTrace();
-        	System.out.println("Null or incorrect value!");
-        }
-}
+	//static String daneZBazy;
 	
 	public static void main(String[] args) {
 		//jdbc:mysql://ADRES_URL/NAZWA_BAZY_DANYCH?user=NAZWA_UŻYTKOWNIKA&password=HASŁO
@@ -69,5 +49,25 @@ public class JDBC {
 		}
 
 	}
+	static void wyswietlDaneZBazy(ResultSet rs){
+		
+        try{
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int resultSetColumnCount = rsmd.getColumnCount();
+        for(int i=1; i<=resultSetColumnCount; i++){
+        	 System.out.println(rs.getString(i) + " "); //drukuj kolumnę
+        }
+        	
+//        daneZBazy = rs.getString(1); //pobierz 1. kolumnę z wiersza
+//        System.out.println("\n" + daneZBazy + " "); //drukuj kolumnę
+//        daneZBazy = rs.getString(2);//pobierz 2. kolumnę z wiersza
+//        System.out.println(daneZBazy + " ");//drukuj kolumnę
+//        daneZBazy = rs.getString(3);//pobierz 3. kolumnę z wiersza
+//        System.out.println(daneZBazy);//drukuj kolumnę
+        }catch(SQLException e) {
+                //e.printStackTrace();
+        	System.out.println("Null or incorrect value!");
+        }
+}
 
 }
