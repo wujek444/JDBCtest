@@ -8,15 +8,23 @@ public class JDBC {
 
 	static String daneZBazy;
 	static void wyswietlDaneZBazy(ResultSet rs){
+		
         try{
-        daneZBazy = rs.getString(1); //pobierz 1. kolumnę z wiersza
-        System.out.println("\n" + daneZBazy + " "); //drukuj kolumnę
-        daneZBazy = rs.getString(2);//pobierz 2. kolumnę z wiersza
-        System.out.println(daneZBazy + " ");//drukuj kolumnę
-        daneZBazy = rs.getString(3);//pobierz 3. kolumnę z wiersza
-        System.out.println(daneZBazy);//drukuj kolumnę
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int resultSetColumnCount = rsmd.getColumnCount();
+        for(int i=1; i<=resultSetColumnCount; i++){
+        	 System.out.println(rs.getString(i) + " "); //drukuj kolumnę
+        }
+        	
+//        daneZBazy = rs.getString(1); //pobierz 1. kolumnę z wiersza
+//        System.out.println("\n" + daneZBazy + " "); //drukuj kolumnę
+//        daneZBazy = rs.getString(2);//pobierz 2. kolumnę z wiersza
+//        System.out.println(daneZBazy + " ");//drukuj kolumnę
+//        daneZBazy = rs.getString(3);//pobierz 3. kolumnę z wiersza
+//        System.out.println(daneZBazy);//drukuj kolumnę
         }catch(SQLException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+        	System.out.println("Null or incorrect value!");
         }
 }
 	
